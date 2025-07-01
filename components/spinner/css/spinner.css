@@ -1,27 +1,31 @@
-.loader {
-  position: relative;
-  background-image: linear-gradient(
-    131.05deg,
-    var(--muted-25) -13.19%,
-    var(--accent) 76.2%
-  );
+@property --g-angle {
+  syntax: "<angle>";
+  initial-value: 225.69deg;
+  inherits: false;
+}
+@property --g-stop1 {
+  syntax: "<percentage>";
+  initial-value: -12.38%;
+  inherits: false;
+}
+@property --g-stop2 {
+  syntax: "<percentage>";
+  initial-value: 55.51%;
+  inherits: false;
 }
 
-.loader::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  background-image: linear-gradient(
-    225.69deg,
-    var(--muted-25) -12.38%,
-    var(--accent) 55.51%
+.loader {
+  --g-angle: 225.69deg;
+  --g-stop1: -12.38%;
+  --g-stop2: 55.51%;
+
+  position: relative;
+  background: linear-gradient(
+    var(--g-angle),
+    var(--muted-25) var(--g-stop1),
+    var(--accent) var(--g-stop2)
   );
-  opacity: 1;
-  animation: loading-gradient 3.2s infinite;
+  animation: shifting-gradient 3.2s infinite;
 }
 
 .sparkle {
@@ -45,14 +49,20 @@
   }
 }
 
-@keyframes loading-gradient {
+@keyframes shifting-gradient {
   0% {
-    opacity: 1;
+    --g-angle: 225.69deg;
+    --g-stop1: -12.38%;
+    --g-stop2: 55.51%;
   }
   50% {
-    opacity: 0;
+    --g-angle: 131.05deg;
+    --g-stop1: -13.19%;
+    --g-stop2: 76.2%;
   }
   100% {
-    opacity: 1;
+    --g-angle: 225.69deg;
+    --g-stop1: -12.38%;
+    --g-stop2: 55.51%;
   }
 }

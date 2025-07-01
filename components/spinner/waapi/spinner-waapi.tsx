@@ -6,21 +6,34 @@ import "./spinner-waapi.css";
 
 const EASING = "cubic-bezier(0.65, 0, 0.35, 1)";
 
-const LOADING_GRADIENT_RIGHT =
-  "linear-gradient(131.05deg, var(--muted-25) -13.19%, var(--accent) 76.2%)";
-const LOADING_GRADIENT_LEFT =
-  "linear-gradient(225.69deg, var(--muted-25) -12.38%, var(--accent) 55.51%)";
+const LEFT_GRADIENT_ANGLES = {
+  "--g-angle": "131.05deg",
+  "--g-stop1": "-13.19%",
+  "--g-stop2": "76.2%",
+};
+
+const RIGHT_GRADIENT_ANGLES = {
+  "--g-angle": "225.69deg",
+  "--g-stop1": "-12.38%",
+  "--g-stop2": "55.51%",
+};
 
 const gradientKeyframes: Keyframe[] = [
   {
-    background: LOADING_GRADIENT_LEFT,
+    ...RIGHT_GRADIENT_ANGLES,
     easing: EASING,
   },
   {
-    background: LOADING_GRADIENT_RIGHT,
+    ...LEFT_GRADIENT_ANGLES,
+    easing: EASING,
+  },
+  {
+    ...RIGHT_GRADIENT_ANGLES,
     easing: EASING,
   },
 ];
+
+const LOADING_GRADIENT = `linear-gradient(var(--g-angle), var(--muted-25) var(--g-stop1), var(--accent) var(--g-stop2))`;
 
 const sparkleKeyframes: Keyframe[] = [
   {
@@ -72,7 +85,7 @@ export default function SpinnerWebAnimations() {
     <div
       ref={containerRef}
       className="rounded-full h-[38px] w-[80px] flex items-center p-1"
-      style={{ backgroundImage: LOADING_GRADIENT_RIGHT }}
+      style={{ backgroundImage: LOADING_GRADIENT }}
     >
       <div ref={sparkleRef}>
         <Sparkle
