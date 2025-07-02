@@ -50,7 +50,7 @@ const sparkleKeyframes: Keyframe[] = [
 ];
 
 const animationOptions: KeyframeAnimationOptions = {
-  duration: 3200, // 3.2s to match motion implementation
+  duration: 3200, // 3.2s
   iterations: Infinity,
 };
 

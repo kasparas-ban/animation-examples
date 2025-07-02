@@ -1,17 +1,17 @@
 @property --g-angle {
   syntax: "<angle>";
-  initial-value: 131.05deg;
+  initial-value: 225.69deg;
   inherits: false;
 }
 
 @property --g-stop1 {
   syntax: "<percentage>";
-  initial-value: -13.19%;
+  initial-value: -12.38%;
   inherits: false;
 }
 
 @property --g-stop2 {
   syntax: "<percentage>";
-  initial-value: 76.2%;
+  initial-value: 55.51%;
   inherits: false;
 }

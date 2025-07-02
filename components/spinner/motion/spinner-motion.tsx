@@ -20,8 +20,8 @@ const IDLE_GRADIENT =
   "linear-gradient(131.73deg, var(--muted-50) 13.53%, var(--accent) 108.44%)";
 
 const SPARKLE_ROTATION = 180; // degrees
-const ANIMATION_DURATION = 1.5; // seconds
-const ANIMATION_DELAY = 0.1; // seconds
+const ANIMATION_DURATION = 1.6; // seconds
+const ANIMATION_DELAY = 0; // seconds
 
 export default function SpinnerMotion({
   status = "loading",
@@ -36,6 +36,12 @@ export default function SpinnerMotion({
     <motion.div
       className="relative flex h-fit rounded-full"
       animate={status}
+      style={{
+        width:
+          status === "loading"
+            ? LOADER_MAX_WIDTH
+            : "calc(var(--spacing) * 7.5)",
+      }}
       variants={{
         idle: { width: 38 }, // calc(var(--spacing) * 7.5) + calc(var(--spacing) * 1) * 2
         loading: { width: LOADER_MAX_WIDTH },
@@ -45,7 +51,10 @@ export default function SpinnerMotion({
       <motion.div
         className="flex w-full rounded-full p-1"
         animate={status}
-        style={{ background: IDLE_GRADIENT }}
+        style={{
+          background:
+            status === "loading" ? LOADING_GRADIENT_LEFT : IDLE_GRADIENT,
+        }}
         variants={{
           idle: {
             background: IDLE_GRADIENT,
