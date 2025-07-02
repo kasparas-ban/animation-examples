@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import "./spinner-waapi.css";
 
 const EASING = "cubic-bezier(0.65, 0, 0.35, 1)";
+const LOADING_GRADIENT = `linear-gradient(var(--g-angle), var(--muted-25) var(--g-stop1), var(--accent) var(--g-stop2))`;
 
 const LEFT_GRADIENT_ANGLES = {
   "--g-angle": "131.05deg",
@@ -32,8 +33,6 @@ const gradientKeyframes: Keyframe[] = [
     easing: EASING,
   },
 ];
-
-const LOADING_GRADIENT = `linear-gradient(var(--g-angle), var(--muted-25) var(--g-stop1), var(--accent) var(--g-stop2))`;
 
 const sparkleKeyframes: Keyframe[] = [
   {
