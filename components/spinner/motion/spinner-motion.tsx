@@ -72,7 +72,7 @@ export default function SpinnerMotion({
               repeat: Infinity,
               repeatType: "mirror",
               repeatDelay: ANIMATION_DELAY,
-              ease: "easeInOut",
+              ease: [0.65, 0, 0.35, 1],
               delay: animationDelay,
             },
           },
@@ -112,7 +112,7 @@ export default function SpinnerMotion({
               duration: ANIMATION_DURATION,
               repeat: Infinity,
               repeatDelay: ANIMATION_DELAY,
-              ease: "easeInOut",
+              ease: [0.65, 0, 0.35, 1],
               repeatType: "mirror",
               delay: animationDelay,
             }}
