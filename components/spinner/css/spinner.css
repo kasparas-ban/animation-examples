@@ -37,16 +37,13 @@
 
 @keyframes spinning-sparkle {
   0% {
-    transform: translateX(0);
-    rotate: 0deg;
+    transform: translateX(0) rotate(0deg);
   }
   50% {
-    transform: translateX(42px);
-    rotate: 180deg;
+    transform: translateX(42px) rotate(180deg);
   }
   100% {
-    transform: translateX(0);
-    rotate: 0deg;
+    transform: translateX(0) rotate(0deg);
   }
 }
 
