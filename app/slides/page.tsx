@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "reveal.js";
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/black.css";
@@ -8,9 +8,12 @@ import Slide1 from "./slide-1";
 import Slide2 from "./slide-2";
 import Slide3 from "./slide-3";
 
+const slides = [Slide1, Slide2, Slide3];
+
 export default function Page() {
-  const deckDivRef = useRef<HTMLDivElement>(null); // reference to deck container div
-  const deckRef = useRef<Reveal.Api | null>(null); // reference to deck reveal instance
+  const deckDivRef = useRef<HTMLDivElement>(null);
+  const deckRef = useRef<Reveal.Api | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     if (deckRef.current) return;
@@ -21,7 +24,9 @@ export default function Page() {
     });
 
     deckRef.current.initialize().then(() => {
-      // good place for event handlers and plugin setups
+      deckRef.current?.on("slidechanged", (event: any) => {
+        setCurrentSlide(event.indexh ?? 0);
+      });
     });
 
     return () => {
@@ -37,9 +42,11 @@ export default function Page() {
       ref={deckDivRef}
     >
       <div className="slides">
-        <Slide1 />
-        <Slide2 />
-        <Slide3 />
+        {slides.map((SlideComponent, idx) => (
+          <section key={idx}>
+            {currentSlide === idx ? <SlideComponent /> : null}
+          </section>
+        ))}
       </div>
     </div>
   );
