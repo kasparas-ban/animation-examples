@@ -35,7 +35,18 @@ export default function SpinnerMotion({
   return (
     <motion.div
       className="relative flex h-fit rounded-full"
-      style={{ width: LOADER_MAX_WIDTH }}
+      animate={status}
+      style={{
+        width:
+          status === "loading"
+            ? LOADER_MAX_WIDTH
+            : "calc(var(--spacing) * 7.5)",
+      }}
+      variants={{
+        idle: { width: 38 }, // calc(var(--spacing) * 7.5) + calc(var(--spacing) * 1) * 2
+        loading: { width: LOADER_MAX_WIDTH },
+      }}
+      transition={{ delay: status === "idle" ? 0 : animationDelay }}
     >
       <motion.div
         className="flex w-full rounded-full p-1"
@@ -69,14 +80,9 @@ export default function SpinnerMotion({
       >
         <motion.div
           variants={{
-            idle: {
-              x: 0,
-              rotate: 0,
-              transition: { duration: 0.1, type: "tween" },
-            },
+            idle: { x: 0, transition: { duration: 0.1, type: "tween" } },
             loading: {
               x: sparkleX,
-              rotate: SPARKLE_ROTATION,
               transition: {
                 duration: ANIMATION_DURATION,
                 repeat: Infinity,
@@ -86,12 +92,36 @@ export default function SpinnerMotion({
                 delay: animationDelay,
               },
             },
+          }}
+        >
+          <motion.div
+            className="w-min"
+            initial={{ rotate: 0 }}
+            variants={{
+              loading: { rotate: SPARKLE_ROTATION },
+              idle: {
+                rotate: 0,
+                transition: {
+                  repeat: 0,
+                  type: "tween",
+                  layout: { type: "tween", ease: "linear" },
+                },
+              },
+            }}
+            transition={{
+              duration: ANIMATION_DURATION,
+              repeat: Infinity,
+              repeatDelay: ANIMATION_DELAY,
+              ease: [0.65, 0, 0.35, 1],
+              repeatType: "mirror",
+              delay: animationDelay,
             }}
           >
             <Sparkle
               fill="var(--background)"
               className={cn("text-transparent", sparkleSize)}
             />
+          </motion.div>
         </motion.div>
       </motion.div>
     </motion.div>
