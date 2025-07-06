@@ -16,11 +16,12 @@ export default function SpinnerCSS({
 
   return (
     <div
-      className="loader rounded-full flex items-center p-1"
+      className="loader rounded-full flex items-center"
       style={
         {
           width,
           height,
+          padding: SPARKLE_PADDING,
           "--sparkle-translate-x": `${translateX}px`,
         } as React.CSSProperties
       }
