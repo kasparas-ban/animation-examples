@@ -32,7 +32,10 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="reveal" ref={deckDivRef}>
+    <div
+      className="reveal !font-(family-name:--font-geist-sans)"
+      ref={deckDivRef}
+    >
       <div className="slides">
         <Slide1 />
         <Slide2 />
