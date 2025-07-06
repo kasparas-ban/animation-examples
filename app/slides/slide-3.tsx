@@ -10,7 +10,7 @@ export default function Slide3() {
       <div className="flex flex-col pt-12">
         <SpinnerCSS width={140} />
         <SpinnerWebAnimations width={140} />
-        <SpinnerMotion />
+        <SpinnerMotion width={140} />
       </div>
     </section>
   );

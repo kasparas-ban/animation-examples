@@ -1,97 +1,73 @@
 "use client";
 
 import { Sparkle } from "lucide-react";
-import { motion } from "motion/react";
-import { cn } from "@/utils/utils";
-
-export type SpinnerStatus = "idle" | "loading";
-
-interface SpinnerProps {
-  status?: SpinnerStatus;
-  animationDelay?: number;
-  size?: string;
-}
+import { Easing, motion } from "motion/react";
 
 const LOADING_GRADIENT_RIGHT =
   "linear-gradient(131.05deg, var(--muted-25) -13.19%, var(--accent) 76.2%)";
 const LOADING_GRADIENT_LEFT =
   "linear-gradient(225.69deg, var(--muted-25) -12.38%, var(--accent) 55.51%)";
-const IDLE_GRADIENT =
-  "linear-gradient(131.73deg, var(--muted-50) 13.53%, var(--accent) 108.44%)";
+
+const EASING: Easing = [0.65, 0, 0.35, 1];
 
 const SPARKLE_ROTATION = 180; // degrees
 const ANIMATION_DURATION = 1.6; // seconds
-const ANIMATION_DELAY = 0; // seconds
+
+const DEFAULT_WIDTH = 80;
+const HEIGHT_TO_WIDTH_RATIO = 38 / 80;
+const SPARKLE_PADDING = 4;
 
 export default function SpinnerMotion({
-  status = "loading",
-  animationDelay = 0,
-  size = "large",
-}: SpinnerProps) {
-  const LOADER_MAX_WIDTH = size === "large" ? 80 : 40;
-  const sparkleX = size === "large" ? 42 : 15;
-  const sparkleSize = size === "large" ? "size-7.5" : "size-4";
+  width = DEFAULT_WIDTH,
+}: {
+  width?: number;
+}) {
+  const height = width * HEIGHT_TO_WIDTH_RATIO;
+  const sparkleSize = height - 2 * SPARKLE_PADDING;
+  const translateX = width - sparkleSize - 2 * SPARKLE_PADDING;
 
   return (
     <motion.div
       className="relative flex h-fit rounded-full"
-      style={{ width: LOADER_MAX_WIDTH }}
+      style={{ width, height }}
     >
       <motion.div
         className="flex w-full rounded-full p-1"
-        animate={status}
-        style={{
-          background:
-            status === "loading" ? LOADING_GRADIENT_LEFT : IDLE_GRADIENT,
-        }}
+        animate="loading"
         variants={{
-          idle: {
-            background: IDLE_GRADIENT,
-            transition: {
-              duration: 0.3,
-              ease: "easeInOut",
-              layout: { type: "tween", ease: "linear" },
-              delay: animationDelay,
-            },
-          },
           loading: {
             background: [LOADING_GRADIENT_LEFT, LOADING_GRADIENT_RIGHT],
             transition: {
               duration: ANIMATION_DURATION,
               repeat: Infinity,
               repeatType: "mirror",
-              repeatDelay: ANIMATION_DELAY,
-              ease: [0.65, 0, 0.35, 1],
-              delay: animationDelay,
+              ease: EASING,
             },
           },
         }}
       >
         <motion.div
           variants={{
-            idle: {
-              x: 0,
-              rotate: 0,
-              transition: { duration: 0.1, type: "tween" },
-            },
             loading: {
-              x: sparkleX,
+              x: translateX,
               rotate: SPARKLE_ROTATION,
               transition: {
                 duration: ANIMATION_DURATION,
                 repeat: Infinity,
                 repeatType: "mirror",
-                repeatDelay: ANIMATION_DELAY,
-                ease: [0.65, 0, 0.35, 1],
-                delay: animationDelay,
+                ease: EASING,
               },
             },
+          }}
+        >
+          <Sparkle
+            fill="var(--background)"
+            className="text-transparent"
+            style={{
+              width: sparkleSize,
+              height: sparkleSize,
             }}
-          >
-            <Sparkle
-              fill="var(--background)"
-              className={cn("text-transparent", sparkleSize)}
-            />
+          />
         </motion.div>
       </motion.div>
     </motion.div>
