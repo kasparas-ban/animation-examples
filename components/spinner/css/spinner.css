@@ -25,25 +25,23 @@
     var(--muted-25) var(--g-stop1),
     var(--accent) var(--g-stop2)
   );
-  animation: shifting-gradient 3.2s infinite;
+  animation: shifting-gradient 1.6s infinite;
   animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-direction: alternate;
 }
 
 .sparkle {
-  animation: spinning-sparkle 3.2s infinite;
+  animation: spinning-sparkle 1.6s infinite;
   animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
-  transform: translateX(0);
+  animation-direction: alternate;
 }
 
 @keyframes spinning-sparkle {
   0% {
     transform: translateX(0) rotate(0deg);
   }
-  50% {
-    transform: translateX(42px) rotate(180deg);
-  }
   100% {
-    transform: translateX(0) rotate(0deg);
+    transform: translateX(var(--sparkle-translate-x, 42px)) rotate(180deg);
   }
 }
 
@@ -53,14 +51,9 @@
     --g-stop1: -12.38%;
     --g-stop2: 55.51%;
   }
-  50% {
+  100% {
     --g-angle: 131.05deg;
     --g-stop1: -13.19%;
     --g-stop2: 76.2%;
-  }
-  100% {
-    --g-angle: 225.69deg;
-    --g-stop1: -12.38%;
-    --g-stop2: 55.51%;
   }
 }

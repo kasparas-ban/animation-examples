@@ -1,13 +1,38 @@
 import { Sparkle } from "lucide-react";
 import "./spinner.css";
 
-export default function SpinnerCSS() {
+const DEFAULT_WIDTH = 80;
+const HEIGHT_TO_WIDTH_RATIO = 38 / 80;
+const SPARKLE_PADDING = 4;
+
+export default function SpinnerCSS({
+  width = DEFAULT_WIDTH,
+}: {
+  width?: number;
+}) {
+  const height = width * HEIGHT_TO_WIDTH_RATIO;
+  const sparkleSize = height - 2 * SPARKLE_PADDING;
+  const translateX = width - sparkleSize - 2 * SPARKLE_PADDING;
+
   return (
-    <div className="loader rounded-full h-[38px] w-[80px] flex items-center p-1">
+    <div
+      className="loader rounded-full flex items-center p-1"
+      style={
+        {
+          width,
+          height,
+          "--sparkle-translate-x": `${translateX}px`,
+        } as React.CSSProperties
+      }
+    >
       <div className="sparkle">
         <Sparkle
           fill="var(--background)"
-          className="text-transparent size-7.5"
+          className="text-transparent"
+          style={{
+            width: sparkleSize,
+            height: sparkleSize,
+          }}
         />
       </div>
     </div>

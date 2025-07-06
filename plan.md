@@ -3,6 +3,7 @@
 ## Introduction and goals
 
 - Inspired by Viral Forms project
+  - Introduce project and team of people who worked on it
 - Outline and goals of the presentation
   - Contract and compare different animation tools
   - Best practices and ways to optimize performance
@@ -15,7 +16,7 @@
 - GSAP, Motion, Spring.js, Anime.js
 - Rive, Lottie
 
-## Basic principles
+## Performance comparison
 
 - Natural, Physics-based
 - Minimal
@@ -31,3 +32,5 @@ Animating a `div` with `transform` is generally more performant than animating a
 Modern browsers optimize animations by offloading them to the GPU. To do this, they often promote the animated element to its own `compositor layer`. Think of this as giving the element its own sheet of glass that can be moved around without disturbing the rest of the page content.
 
 When you had two nested `motion.divs`, the browser might create two separate compositor layers—one for the outer `div` being translated (x) and one for the inner `div` being rotated (rotate). The browser then has to calculate the position and rotation for each layer and composite them together every frame. This management of multiple layers adds computational overhead.
+
+Larger layers costs more to animate.
