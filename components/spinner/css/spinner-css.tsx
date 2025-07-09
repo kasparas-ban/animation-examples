@@ -16,7 +16,7 @@ export default function SpinnerCSS({
 
   return (
     <div
-      className="loader rounded-full flex items-center"
+      className="loader relative rounded-full flex items-center"
       style={
         {
           width,

@@ -1,43 +1,34 @@
 @property --g-angle {
   syntax: "<angle>";
   initial-value: 225.69deg;
-  inherits: false;
 }
 @property --g-stop1 {
   syntax: "<percentage>";
   initial-value: -12.38%;
-  inherits: false;
 }
 @property --g-stop2 {
   syntax: "<percentage>";
   initial-value: 55.51%;
-  inherits: false;
 }
 
 .loader {
-  --g-angle: 225.69deg;
-  --g-stop1: -12.38%;
-  --g-stop2: 55.51%;
-
-  position: relative;
   background: linear-gradient(
     var(--g-angle),
     var(--muted-25) var(--g-stop1),
     var(--accent) var(--g-stop2)
   );
-  animation: shifting-gradient 1.6s infinite;
+  animation: gradient-shift 1.6s infinite;
   animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
   animation-direction: alternate;
-  transform: translateX(0) rotate(0deg);
 }
 
 .sparkle {
-  animation: spinning-sparkle 1.6s infinite;
+  animation: sparkle-spin 1.6s infinite;
   animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
   animation-direction: alternate;
 }
 
-@keyframes spinning-sparkle {
+@keyframes sparkle-spin {
   0% {
     transform: translateX(0) rotate(0deg);
   }
@@ -46,7 +37,7 @@
   }
 }
 
-@keyframes shifting-gradient {
+@keyframes gradient-shift {
   0% {
     --g-angle: 225.69deg;
     --g-stop1: -12.38%;

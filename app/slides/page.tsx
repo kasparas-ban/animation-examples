@@ -24,6 +24,7 @@ export default function Page() {
     });
 
     deckRef.current.initialize().then(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       deckRef.current?.on("slidechanged", (event: any) => {
         setCurrentSlide(event.indexh ?? 0);
       });
