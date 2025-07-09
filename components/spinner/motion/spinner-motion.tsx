@@ -33,31 +33,26 @@ export default function SpinnerMotion({
     >
       <motion.div
         className="flex w-full rounded-full p-1"
-        animate="loading"
-        variants={{
-          loading: {
-            background: [LOADING_GRADIENT_LEFT, LOADING_GRADIENT_RIGHT],
-            transition: {
-              duration: ANIMATION_DURATION,
-              repeat: Infinity,
-              repeatType: "mirror",
-              ease: EASING,
-            },
-          },
+        animate={{
+          background: [LOADING_GRADIENT_LEFT, LOADING_GRADIENT_RIGHT],
+        }}
+        transition={{
+          duration: ANIMATION_DURATION,
+          repeat: Infinity,
+          repeatType: "mirror",
+          ease: EASING,
         }}
       >
         <motion.div
-          variants={{
-            loading: {
-              x: translateX,
-              rotate: SPARKLE_ROTATION,
-              transition: {
-                duration: ANIMATION_DURATION,
-                repeat: Infinity,
-                repeatType: "mirror",
-                ease: EASING,
-              },
-            },
+          animate={{
+            x: translateX,
+            rotate: SPARKLE_ROTATION,
+          }}
+          transition={{
+            duration: ANIMATION_DURATION,
+            repeat: Infinity,
+            repeatType: "mirror",
+            ease: EASING,
           }}
         >
           <Sparkle
