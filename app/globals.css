@@ -253,3 +253,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+.reveal pre {
+  margin: 0 !important;
+  width: fit-content !important;
+}
