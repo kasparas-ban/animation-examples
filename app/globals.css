@@ -254,7 +254,6 @@
   }
 }
 
-.reveal pre {
-  margin: 0 !important;
-  width: fit-content !important;
+.spectacle-fullscreen-button {
+  display: none;
 }
