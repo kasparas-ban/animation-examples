@@ -18,7 +18,9 @@
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-pdf": "^10.0.1",
     "react-shiki": "^0.7.1",
+    "reveal.js": "^5.2.1",
     "spectacle": "^10.2.0",
     "tailwind-merge": "^3.3.1"
   },
@@ -28,6 +30,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-pdf": "^6.2.0",
+    "@types/reveal.js": "^5.2.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "tailwindcss": "^4",
