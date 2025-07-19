@@ -23,7 +23,6 @@
   animation: gradient-shift 1.6s infinite;
   animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
   animation-direction: alternate;
-  /* transform: translateZ(0); */
 }
 
 .sparkle {

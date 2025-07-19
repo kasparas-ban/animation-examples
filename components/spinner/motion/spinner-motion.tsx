@@ -27,10 +27,7 @@ export default function SpinnerMotion({
   const translateX = width - sparkleSize - 2 * SPARKLE_PADDING;
 
   return (
-    <motion.div
-      className="relative flex h-fit rounded-full"
-      style={{ width, height }}
-    >
+    <div className="relative flex h-fit rounded-full" style={{ width, height }}>
       <motion.div
         className="flex w-full rounded-full p-1"
         animate={{
@@ -44,9 +41,9 @@ export default function SpinnerMotion({
         }}
       >
         <motion.div
+          initial={{ transform: `translateX(0px) rotate(0deg)` }}
           animate={{
-            x: translateX,
-            rotate: SPARKLE_ROTATION,
+            transform: `translateX(${translateX}px) rotate(${SPARKLE_ROTATION}deg)`,
           }}
           transition={{
             duration: ANIMATION_DURATION,
@@ -65,6 +62,6 @@ export default function SpinnerMotion({
           />
         </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
