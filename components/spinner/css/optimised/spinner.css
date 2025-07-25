@@ -1,0 +1,35 @@
+.loader-bg {
+  background: linear-gradient(
+    225.69deg,
+    var(--muted-5) -0.38%,
+    var(--accent) 55.51%
+  );
+
+  animation: gradient-shift 1.6s infinite;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-direction: alternate;
+}
+
+.sparkle {
+  animation: sparkle-spin 1.6s infinite;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-direction: alternate;
+}
+
+@keyframes sparkle-spin {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(var(--sparkle-translate-x, 42px)) rotate(180deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: -90deg;
+  }
+}

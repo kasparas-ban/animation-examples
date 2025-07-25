@@ -1,6 +1,6 @@
 "use client";
 
-import SpinnerCSS from "@/components/spinner/css/spinner-css";
+import SpinnerCSS from "@/components/spinner/css/unoptimised/spinner-css";
 import ShikiHighlighter from "react-shiki";
 import { Slide } from "spectacle";
 

@@ -1,5 +1,5 @@
 import SlideBackground from "@/components/slide-background/slide-background";
-import SpinnerCSS from "@/components/spinner/css/spinner-css";
+import SpinnerCSS from "@/components/spinner/css/optimised/spinner-css";
 
 export default function Slide2() {
   return (

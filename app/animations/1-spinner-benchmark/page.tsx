@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import SpinnerCSS from "@/components/spinner/css/spinner-css";
+import SpinnerCSS from "@/components/spinner/css/optimised/spinner-css";
 import SpinnerMotion from "@/components/spinner/motion/spinner-motion";
 import SpinnerWAAPI from "@/components/spinner/waapi/spinner-waapi";
 import { getBrowser, getDevice } from "@/utils/utils";
