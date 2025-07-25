@@ -1,7 +1,11 @@
+import { SpinnerToInput } from "@/components/spinner-to-input/spinner-to-input";
+import { UserInput } from "@/components/spinner-to-input/user-input";
+
 export default function Test() {
   return (
-    <div className="relative top-0 bg-blue-300 p-6  hover:top-5 duration-500 will-change-[top]">
-      TEST
+    <div className="relative max-w-[640px]">
+      <UserInput />
+      <SpinnerToInput />
     </div>
   );
 }

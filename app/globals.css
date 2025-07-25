@@ -87,6 +87,12 @@
   --sidebar-border: oklch(0.922 0 0);
 
   --sidebar-ring: oklch(0.708 0 0);
+
+  --placeholder: color-mix(
+    in oklch,
+    var(--foreground) 50%,
+    var(--background) 50%
+  );
 }
 
 @theme inline {
@@ -179,6 +185,11 @@
   --color-sidebar-border: var(--sidebar-border);
 
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-placeholder: var(
+    --placeholder,
+    color-mix(in oklch, var(--foreground) 50%, var(--background) 50%)
+  );
 }
 
 .dark {

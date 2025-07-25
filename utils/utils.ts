@@ -18,3 +18,11 @@ export function getBrowser() {
 export function getDevice() {
   return /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop";
 }
+
+export const sleep = (seconds: number) => {
+  let timeoutId: NodeJS.Timeout;
+  const promise = new Promise<void>((resolve) => {
+    timeoutId = setTimeout(resolve, seconds * 1000);
+  });
+  return { promise, cancel: () => clearTimeout(timeoutId) };
+};
