@@ -5,8 +5,15 @@ import Slide1 from "./slide-1";
 import Slide2 from "./slide-2";
 import ViewTransitionsMotion from "../../components/view-transitions/motion/view-transitions-motion";
 import ViewTransitionsCSS from "@/components/view-transitions/css/view-transitions-css";
+import Test from "./test";
 
-const slides = [ViewTransitionsCSS, ViewTransitionsMotion, Slide1, Slide2];
+const slides = [
+  Test,
+  ViewTransitionsCSS,
+  ViewTransitionsMotion,
+  Slide1,
+  Slide2,
+];
 
 export default function Page() {
   const [currentSlide, setCurrentSlide] = useState(0);

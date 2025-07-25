@@ -46,7 +46,7 @@ export function SpinnerToInput() {
         animate(
           "[data-outline]",
           { borderRadius: 12, height: 58, width: "100%" },
-          { duration: 0.25, ease: "easeOut" }
+          { duration: 0.6, ease: "easeOut" }
         ),
         // Morph spinner to button
         animate([
@@ -111,7 +111,7 @@ export function SpinnerToInput() {
           <motion.div
             key="outline"
             data-outline
-            style={{ opacity: 0, borderRadius: 24 }}
+            style={{ opacity: 0, borderRadius: 24, width: 50, height: 50 }}
             className="bg-background border-field-border absolute top-1/2 left-0 flex -translate-y-1/2 items-center border"
           >
             {/* Input placeholder */}
