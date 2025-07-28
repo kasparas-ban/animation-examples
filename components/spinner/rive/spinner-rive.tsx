@@ -1,13 +1,21 @@
 import { useRive } from "@rive-app/react-canvas-lite";
 
-export default function SpinnerRive() {
+const DEFAULT_WIDTH = 80;
+const HEIGHT_TO_WIDTH_RATIO = 38 / 80;
+
+export default function SpinnerRive({
+  width = DEFAULT_WIDTH,
+}: {
+  width?: number;
+}) {
+  const height = width * HEIGHT_TO_WIDTH_RATIO;
   const { RiveComponent } = useRive({
     src: "spinner.riv",
     autoplay: true,
   });
 
   return (
-    <div className="w-[80px] h-[38px]">
+    <div className={`w-[${width}px] h-[${height}px]`}>
       <RiveComponent />
     </div>
   );
