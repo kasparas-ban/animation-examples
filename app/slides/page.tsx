@@ -7,8 +7,10 @@ import Slide2 from "./slide-2";
 import ViewTransitionsMotion from "../../components/view-transitions/motion/view-transitions-motion";
 import ViewTransitionsCSS from "@/components/view-transitions/css/view-transitions-css";
 import Test from "./test";
+import SlideTransition from "./slide-transition";
 
 const slides = [
+  SlideTransition,
   Test,
   ViewTransitionsCSS,
   ViewTransitionsMotion,
@@ -27,6 +29,7 @@ export default function Page() {
     : Math.min(Math.max(initialSlideParam, 0), slides.length - 1);
 
   const [currentSlide, setCurrentSlide] = useState(initialSlide);
+  const CurrentSlide = slides[currentSlide];
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -48,8 +51,6 @@ export default function Page() {
   useEffect(() => {
     router.replace(`${pathname}?slide=${currentSlide}`, { scroll: false });
   }, [currentSlide, pathname, router]);
-
-  const CurrentSlide = slides[currentSlide];
 
   return (
     <div>
