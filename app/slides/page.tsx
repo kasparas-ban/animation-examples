@@ -34,5 +34,11 @@ export default function Page() {
     };
   }, []);
 
-  return <div>{slides[currentSlide]()}</div>;
+  const CurrentSlide = slides[currentSlide];
+
+  return (
+    <div>
+      <CurrentSlide />
+    </div>
+  );
 }
