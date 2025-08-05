@@ -8,8 +8,10 @@ import ViewTransitionsMotion from "../../components/view-transitions/motion/view
 import ViewTransitionsCSS from "@/components/view-transitions/css/view-transitions-css";
 import Test from "./test";
 import SlideTransition from "./slide-transition";
+import SlideTech2 from "./slide-tech-2";
 
 const slides = [
+  SlideTech2,
   SlideTransition,
   Test,
   ViewTransitionsCSS,
