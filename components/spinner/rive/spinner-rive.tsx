@@ -34,7 +34,7 @@ export default function SpinnerRive({
       parseInt(color.slice(2, 4), 16),
       parseInt(color.slice(4, 6), 16)
     );
-  }, [color]);
+  }, [color, setRgb]);
 
   return (
     <div className={`w-[${width}px] h-[${height}px]`}>
