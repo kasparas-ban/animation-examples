@@ -9,8 +9,10 @@ import ViewTransitionsCSS from "@/components/view-transitions/css/view-transitio
 import Test from "./test";
 import SlideTransition from "./slide-transition";
 import SlideTech2 from "./slide-tech-2";
+import SlideRive from "./slide-rive";
 
 const slides = [
+  SlideRive,
   SlideTech2,
   SlideTransition,
   Test,
