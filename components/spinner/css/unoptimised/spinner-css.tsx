@@ -1,5 +1,6 @@
 import { Sparkle } from "lucide-react";
-import "./spinner.css";
+import styles from "./spinner-css.module.css";
+import { cn } from "@/lib/utils";
 
 const DEFAULT_WIDTH = 80;
 const HEIGHT_TO_WIDTH_RATIO = 38 / 80;
@@ -16,7 +17,7 @@ export default function SpinnerCSS({
 
   return (
     <div
-      className="loader relative rounded-full flex items-center"
+      className={cn(styles.loader, "relative rounded-full flex items-center")}
       style={
         {
           width,
@@ -26,10 +27,10 @@ export default function SpinnerCSS({
         } as React.CSSProperties
       }
     >
-      <div className="sparkle">
+      <div className="sparkle-unoptimised">
         <Sparkle
           fill="var(--background)"
-          className="text-transparent"
+          className={cn(styles.sparkle, "text-transparent")}
           style={{
             width: sparkleSize,
             height: sparkleSize,

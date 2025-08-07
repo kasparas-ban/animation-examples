@@ -1,24 +1,29 @@
 "use client";
 
 import { useState } from "react";
-import SpinnerCSS from "@/components/spinner/css/optimised/spinner-css";
+import SpinnerCSSUnoptimised from "@/components/spinner/css/unoptimised/spinner-css";
+import SpinnerCSSOptimised from "@/components/spinner/css/optimised/spinner-css";
 import SpinnerMotion from "@/components/spinner/motion/spinner-motion";
 import SpinnerWAAPI from "@/components/spinner/waapi/spinner-waapi";
 import { getBrowser, getDevice } from "@/utils/utils";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 
-type AnimationType = "css" | "waapi" | "motion";
+type AnimationType = "css-unoptimised" | "css-optimised" | "waapi" | "motion";
 
 type Settings = {
   elementCount: number;
-  animationType: "css" | "waapi" | "motion";
+  animationType: "css-unoptimised" | "css-optimised" | "waapi" | "motion";
 };
 
 const animationTypes: { value: Settings["animationType"]; label: string }[] = [
   {
-    value: "css",
-    label: "CSS",
+    value: "css-unoptimised",
+    label: "CSS (Unoptimised)",
+  },
+  {
+    value: "css-optimised",
+    label: "CSS (Optimised)",
   },
   {
     value: "waapi",
@@ -45,8 +50,10 @@ export default function Page() {
 
   const getSpinnerComponent = (animationType: AnimationType, key: number) => {
     switch (animationType) {
-      case "css":
-        return <SpinnerCSS key={key} />;
+      case "css-unoptimised":
+        return <SpinnerCSSUnoptimised key={key} />;
+      case "css-optimised":
+        return <SpinnerCSSOptimised key={key} />;
       case "waapi":
         return <SpinnerWAAPI key={key} />;
       case "motion":

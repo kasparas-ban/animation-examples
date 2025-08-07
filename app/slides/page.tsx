@@ -28,12 +28,6 @@ const slides = [
   Slide10,
   Slide11,
   Slide12,
-  // SlideRive,
-  // SlideTech2,
-  // SlideTransition,
-  // Test,
-  // ViewTransitionsCSS,
-  // ViewTransitionsMotion,
 ];
 
 export default function Page() {
