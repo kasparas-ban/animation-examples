@@ -27,10 +27,10 @@ export default function SpinnerCSS({
         } as React.CSSProperties
       }
     >
-      <div className="sparkle-unoptimised">
+      <div className={styles.sparkle}>
         <Sparkle
           fill="var(--background)"
-          className={cn(styles.sparkle, "text-transparent")}
+          className="text-transparent"
           style={{
             width: sparkleSize,
             height: sparkleSize,

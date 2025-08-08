@@ -83,7 +83,7 @@ export default function SpinnerWebAnimations({
       gradientAnimation.cancel();
       sparkleAnimation.cancel();
     };
-  }, []);
+  }, [translateX]);
 
   return (
     <div

@@ -4,7 +4,7 @@ import { useState } from "react";
 import SpinnerCSSUnoptimised from "@/components/spinner/css/unoptimised/spinner-css";
 import SpinnerCSSOptimised from "@/components/spinner/css/optimised/spinner-css";
 import SpinnerMotion from "@/components/spinner/motion/spinner-motion";
-import SpinnerWAAPI from "@/components/spinner/waapi/spinner-waapi";
+import SpinnerWAAPI from "@/components/spinner/waapi/spinner-waapi-optimised";
 import { getBrowser, getDevice } from "@/utils/utils";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
