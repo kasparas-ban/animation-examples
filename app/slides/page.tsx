@@ -14,6 +14,7 @@ import Slide9 from "./slide-9";
 import Slide10 from "./slide-10";
 import Slide11 from "./slide-11";
 import Slide12 from "./slide-12";
+import Slide13 from "./slide-13";
 
 const slides = [
   Slide1,
@@ -28,6 +29,7 @@ const slides = [
   Slide10,
   Slide11,
   Slide12,
+  Slide13,
 ];
 
 export default function Page() {

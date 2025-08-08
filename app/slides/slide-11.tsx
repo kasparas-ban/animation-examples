@@ -1,16 +1,21 @@
 import SlideBackground from "@/components/slide-background/slide-background";
-import SpinnerLottieCanvas from "@/components/spinner/lottie/spinner-lottie-canvas";
-import SpinnerLottieSVG from "@/components/spinner/lottie/spinner-lottie-svg";
+import SpinnerCSS from "@/components/spinner/css/optimised/spinner-css";
+import SpinnerMotion from "@/components/spinner/motion/spinner-motion";
+import SpinnerWebAnimations from "@/components/spinner/waapi/spinner-waapi";
 
 export default function Slide11() {
   return (
     <SlideBackground idx={11}>
-      <div className="absolute translate-x-[1110px] translate-y-[330px]">
-        <SpinnerLottieSVG width={400} />
+      <div className="absolute translate-x-[150px] translate-y-[435px]">
+        <SpinnerCSS width={340} />
       </div>
 
-      <div className="absolute translate-x-[1110px] translate-y-[640px]">
-        <SpinnerLottieCanvas width={400} />
+      <div className="absolute translate-x-[650px] translate-y-[435px]">
+        <SpinnerWebAnimations width={340} />
+      </div>
+
+      <div className="absolute translate-x-[1150px] translate-y-[435px]">
+        <SpinnerMotion width={340} />
       </div>
     </SlideBackground>
   );

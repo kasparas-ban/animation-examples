@@ -21,8 +21,8 @@ export default function SpinnerCSS({
     <div
       className={cn(
         styles.loader,
-        "relative rounded-full flex items-center overflow-hidden",
-        showOverlay && "overflow-hidden"
+        "relative rounded-full flex items-center",
+        !showOverlay && "overflow-hidden"
       )}
       style={
         {
