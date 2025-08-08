@@ -27,7 +27,10 @@ export default function SpinnerMotion({
   const translateX = width - sparkleSize - 2 * SPARKLE_PADDING;
 
   return (
-    <div className="relative flex h-fit rounded-full" style={{ width, height }}>
+    <div
+      className="relative flex h-fit rounded-fullu overflow-hidden"
+      style={{ width, height }}
+    >
       <motion.div
         className="flex w-full rounded-full p-1"
         animate={{

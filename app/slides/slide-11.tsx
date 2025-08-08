@@ -1,6 +1,6 @@
 import SlideBackground from "@/components/slide-background/slide-background";
 import SpinnerCSS from "@/components/spinner/css/optimised/spinner-css";
-import SpinnerMotion from "@/components/spinner/motion/spinner-motion";
+import SpinnerMotion from "@/components/spinner/motion/spinner-motion-optimised";
 import SpinnerWebAnimations from "@/components/spinner/waapi/spinner-waapi-optimised";
 
 export default function Slide11() {
