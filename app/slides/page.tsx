@@ -15,8 +15,10 @@ import Slide10 from "./slide-10";
 import Slide11 from "./slide-11";
 import Slide12 from "./slide-12";
 import Slide13 from "./slide-13";
+import Test from "./test";
 
 const slides = [
+  Test,
   Slide1,
   Slide2,
   Slide3,
