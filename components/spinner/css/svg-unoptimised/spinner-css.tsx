@@ -1,4 +1,3 @@
-import { Sparkle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import styles from "./spinner-css.module.css";
 
@@ -39,14 +38,6 @@ export default function SpinnerCSS({
         )}
         style={{ width, height: width }}
       />
-      {/* <Sparkle
-        fill="var(--background)"
-        className={cn(styles.sparkle, "text-transparent")}
-        style={{
-          width: sparkleSize,
-          height: sparkleSize,
-        }}
-      /> */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

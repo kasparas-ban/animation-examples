@@ -8,12 +8,18 @@ import SpinnerWAAPI from "@/components/spinner/waapi/spinner-waapi-optimised";
 import { getBrowser, getDevice } from "@/utils/utils";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
+import SpinnerGSAP from "@/components/spinner/gsap/spinner-gsap";
 
-type AnimationType = "css-unoptimised" | "css-optimised" | "waapi" | "motion";
+type AnimationType =
+  | "css-unoptimised"
+  | "css-optimised"
+  | "waapi"
+  | "motion"
+  | "gsap";
 
 type Settings = {
   elementCount: number;
-  animationType: "css-unoptimised" | "css-optimised" | "waapi" | "motion";
+  animationType: AnimationType;
 };
 
 const animationTypes: { value: Settings["animationType"]; label: string }[] = [
@@ -32,6 +38,10 @@ const animationTypes: { value: Settings["animationType"]; label: string }[] = [
   {
     value: "motion",
     label: "Motion",
+  },
+  {
+    value: "gsap",
+    label: "GSAP",
   },
 ];
 
@@ -58,6 +68,8 @@ export default function Page() {
         return <SpinnerWAAPI key={key} />;
       case "motion":
         return <SpinnerMotion key={key} />;
+      case "gsap":
+        return <SpinnerGSAP key={key} />;
     }
   };
 
