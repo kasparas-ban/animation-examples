@@ -28,7 +28,7 @@ export default function SpinnerMotion({
 
   return (
     <div
-      className="relative flex h-fit rounded-fullu overflow-hidden"
+      className="relative flex h-fit rounded-full overflow-hidden"
       style={{ width, height }}
     >
       <motion.div

@@ -37,6 +37,7 @@ export default function SpinnerGSAP({
         yoyo: true,
         yoyoEase: EASING,
       });
+
       gsap.to(sparkleRef.current, {
         x: translateX,
         rotate: 180,
