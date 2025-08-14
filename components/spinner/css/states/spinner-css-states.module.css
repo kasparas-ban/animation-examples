@@ -1,0 +1,56 @@
+.loader-bg {
+  background: linear-gradient(
+    225.69deg,
+    var(--muted-5) -0.38%,
+    var(--accent) 55.51%
+  );
+
+  animation: gradient-shift 1.6s infinite;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-direction: alternate;
+
+  transition: background 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.loader-bg-idle {
+  background: linear-gradient(
+    131.73deg,
+    var(--muted-50) 13.53%,
+    var(--accent) 108.44%
+  );
+
+  animation: none;
+}
+
+.sparkle {
+  animation: sparkle-spin 1.6s infinite;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-direction: alternate;
+
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 10;
+}
+
+.sparkle-idle {
+  animation: none;
+  transform: translateX(0) rotate(0deg);
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@keyframes sparkle-spin {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(var(--sparkle-translate-x, 42px)) rotate(180deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: -90deg;
+  }
+}
