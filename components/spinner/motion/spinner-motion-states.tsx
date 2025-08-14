@@ -37,8 +37,21 @@ export function SpinnerMotionStates({
       className="relative flex rounded-full"
       animate={status}
       variants={{
-        idle: { width: sparkleSize + SPARKLE_PADDING * 2 },
-        loading: { width, height },
+        idle: {
+          width: sparkleSize + SPARKLE_PADDING * 2,
+          transition: {
+            duration: 0.5,
+            ease: EASING,
+          },
+        },
+        loading: {
+          width,
+          height,
+          transition: {
+            duration: 0.5,
+            ease: EASING,
+          },
+        },
       }}
     >
       <motion.div
@@ -49,9 +62,8 @@ export function SpinnerMotionStates({
           idle: {
             background: IDLE_GRADIENT,
             transition: {
-              duration: 0.3,
-              ease: "easeInOut",
-              layout: { type: "tween", ease: EASING },
+              duration: 0.5,
+              ease: EASING,
             },
           },
           loading: {
@@ -68,7 +80,7 @@ export function SpinnerMotionStates({
       >
         <motion.div
           variants={{
-            idle: { x: 0, transition: { duration: 0.1, type: "tween" } },
+            idle: { x: 0, transition: { duration: 0.5, ease: EASING } },
             loading: {
               x: translateX,
               transition: {
@@ -84,22 +96,20 @@ export function SpinnerMotionStates({
           <motion.div
             initial={{ rotate: 0 }}
             variants={{
-              loading: { rotate: SPARKLE_ROTATION },
-              idle: {
-                rotate: 0,
+              loading: {
+                rotate: SPARKLE_ROTATION,
                 transition: {
-                  repeat: 0,
-                  type: "tween",
-                  layout: { type: "tween", ease: EASING },
+                  duration: ANIMATION_DURATION,
+                  repeat: Infinity,
+                  repeatDelay: ANIMATION_DELAY,
+                  ease: EASING,
+                  repeatType: "mirror",
                 },
               },
-            }}
-            transition={{
-              duration: ANIMATION_DURATION,
-              repeat: Infinity,
-              repeatDelay: ANIMATION_DELAY,
-              ease: EASING,
-              repeatType: "mirror",
+              idle: {
+                rotate: 0,
+                transition: { duration: 0.5, ease: EASING },
+              },
             }}
           >
             <Sparkle

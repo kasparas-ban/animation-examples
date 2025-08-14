@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { SpinnerCSSStates1 } from "@/components/spinner/css/states/spinner-css-states";
+import {
+  SpinnerCSSStates1,
+  SpinnerCSSStates2,
+} from "@/components/spinner/css/states/spinner-css-states";
 import {
   SpinnerMotionStates,
   LoadingSpinnerStatus,
@@ -13,6 +16,7 @@ export default function Test() {
     <div>
       <SpinnerMotionStates status={status} />
       <SpinnerCSSStates1 status={status} />
+      <SpinnerCSSStates2 status={status} />
       <Button
         onClick={() => setStatus(status === "loading" ? "idle" : "loading")}
         className="m-4"
