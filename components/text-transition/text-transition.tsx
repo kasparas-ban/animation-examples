@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { AnimatePresence } from "motion/react";
 import useTextTokens from "./useTextTokens";

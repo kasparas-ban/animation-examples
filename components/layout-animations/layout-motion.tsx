@@ -1,5 +1,7 @@
-import { motion } from "motion/react";
+"use client";
+
 import { useState } from "react";
+import { motion } from "motion/react";
 
 type State = "first" | "second";
 
