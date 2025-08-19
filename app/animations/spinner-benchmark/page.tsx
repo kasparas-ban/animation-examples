@@ -9,11 +9,15 @@ import { getBrowser, getDevice } from "@/utils/utils";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import SpinnerGSAP from "@/components/spinner/gsap/spinner-gsap";
+import SpinnerMotionUnoptimised from "@/components/spinner/motion/spinner-motion-unoptimised";
+import SpinnerWAAPIUnoptimised from "@/components/spinner/waapi/spinner-waapi-unoptimised";
 
 type AnimationType =
   | "css-unoptimised"
-  | "css-optimised"
+  | "css"
+  | "waapi-unoptimised"
   | "waapi"
+  | "motion-unoptimised"
   | "motion"
   | "gsap";
 
@@ -28,12 +32,20 @@ const animationTypes: { value: Settings["animationType"]; label: string }[] = [
     label: "CSS (Unoptimised)",
   },
   {
-    value: "css-optimised",
-    label: "CSS (Optimised)",
+    value: "css",
+    label: "CSS",
+  },
+  {
+    value: "waapi-unoptimised",
+    label: "WAAPI (Unoptimised)",
   },
   {
     value: "waapi",
     label: "WAAPI",
+  },
+  {
+    value: "motion-unoptimised",
+    label: "Motion (Unoptimised)",
   },
   {
     value: "motion",
@@ -62,10 +74,14 @@ export default function Page() {
     switch (animationType) {
       case "css-unoptimised":
         return <SpinnerCSSUnoptimised key={key} />;
-      case "css-optimised":
+      case "css":
         return <SpinnerCSSOptimised key={key} />;
+      case "waapi-unoptimised":
+        return <SpinnerWAAPIUnoptimised key={key} />;
       case "waapi":
         return <SpinnerWAAPI key={key} />;
+      case "motion-unoptimised":
+        return <SpinnerMotionUnoptimised key={key} />;
       case "motion":
         return <SpinnerMotion key={key} />;
       case "gsap":

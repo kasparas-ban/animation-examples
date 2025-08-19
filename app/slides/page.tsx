@@ -15,10 +15,20 @@ import Slide10 from "./slide-10";
 import Slide11 from "./slide-11";
 import Slide12 from "./slide-12";
 import Slide13 from "./slide-13";
-import Test from "./test";
+import Slide14 from "./slide-14";
+import Slide15 from "./slide-15";
+import Slide16 from "./slide-16";
+import Slide17 from "./slide-17";
+import Slide18 from "./slide-18";
+import Slide19 from "./slide-19";
+import Slide20 from "./slide-20";
+import Slide21 from "./slide-21";
+import Slide22 from "./slide-22";
+import Slide23 from "./slide-23";
+import Slide24 from "./slide-24";
+import Slide25 from "./slide-25";
 
 const slides = [
-  Test,
   Slide1,
   Slide2,
   Slide3,
@@ -32,6 +42,18 @@ const slides = [
   Slide11,
   Slide12,
   Slide13,
+  Slide14,
+  Slide15,
+  Slide16,
+  Slide17,
+  Slide18,
+  Slide19,
+  Slide20,
+  Slide21,
+  Slide22,
+  Slide23,
+  Slide24,
+  Slide25,
 ];
 
 export default function Page() {

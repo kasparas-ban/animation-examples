@@ -51,7 +51,7 @@ const animationOptions: KeyframeAnimationOptions = {
   direction: "alternate",
 };
 
-export default function SpinnerWebAnimations({
+export default function SpinnerWAAPIUnoptimised({
   width = DEFAULT_WIDTH,
 }: {
   width?: number;

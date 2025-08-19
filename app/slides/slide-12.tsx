@@ -1,16 +1,50 @@
+"use client";
+
 import SlideBackground from "@/components/slide-background/slide-background";
-import SpinnerLottieCanvas from "@/components/spinner/lottie/spinner-lottie-canvas";
-import SpinnerLottieSVG from "@/components/spinner/lottie/spinner-lottie-svg";
+import SpinnerCSS from "@/components/spinner/css/optimised/spinner-css";
+import SpinnerCSSUnoptimised from "@/components/spinner/css/unoptimised/spinner-css";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useState } from "react";
+
+const SPINNERS = {
+  "v-1": <SpinnerCSSUnoptimised width={540} />,
+  "v-2": <SpinnerCSS width={540} showOverlay={true} />,
+  "v-3": <SpinnerCSS width={540} />,
+};
 
 export default function Slide12() {
+  const [spinner, setSpinner] = useState<keyof typeof SPINNERS>("v-1");
+
+  const Spinner = SPINNERS[spinner];
+
   return (
     <SlideBackground idx={12}>
-      <div className="absolute translate-x-[1110px] translate-y-[330px]">
-        <SpinnerLottieSVG width={400} />
-      </div>
+      <div className="absolute translate-x-[850px] translate-y-[380px]">
+        <div className="flex flex-col items-center gap-4">
+          <Select
+            onValueChange={(value) =>
+              setSpinner(value as keyof typeof SPINNERS)
+            }
+            defaultValue={spinner}
+          >
+            <SelectTrigger className="w-[240px] z-100 bg-white">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="v-1">CSS (unoptimised)</SelectItem>
+              <SelectItem value="v-2">CSS (optimised) - v1</SelectItem>
+              <SelectItem value="v-3">CSS (optimised) - v2</SelectItem>
+            </SelectContent>
+          </Select>
 
-      <div className="absolute translate-x-[1110px] translate-y-[640px]">
-        <SpinnerLottieCanvas width={400} />
+          {Spinner}
+        </div>
       </div>
     </SlideBackground>
   );

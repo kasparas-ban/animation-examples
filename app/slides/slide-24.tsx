@@ -1,5 +1,5 @@
 import SlideBackground from "@/components/slide-background/slide-background";
 
-export default function Slide13() {
-  return <SlideBackground idx={13} />;
+export default function Slide24() {
+  return <SlideBackground idx={24} />;
 }
