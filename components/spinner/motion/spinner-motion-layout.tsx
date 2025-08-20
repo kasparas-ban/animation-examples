@@ -55,6 +55,7 @@ export default function SpinnerMotionLayout({
           repeat: Infinity,
           ease: EASING,
           repeatType: "reverse",
+          delay: ANIMATION_DURATION,
         }}
       />
       {isLeft ? (
